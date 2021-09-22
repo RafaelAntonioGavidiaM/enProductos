@@ -24,7 +24,7 @@ class modeloProductos
                     $objConexion->bindParam(":d", $descripcion, PDO::PARAM_STR);
                     $objConexion->bindParam(":s", $stock, PDO::PARAM_INT);
                     $objConexion->bindParam(":u", $unidadMedida, PDO::PARAM_STR);
-                    $objConexion->bindParam(":i", $imagen, PDO::PARAM_STR);
+                    $objConexion->bindParam(":i", $url, PDO::PARAM_STR);
 
                     if($objConexion->execute()){
 
@@ -67,5 +67,11 @@ class modeloProductos
 
 
 
+    }
+    public static function mdlEliminar($id,$imagen){
+
+
+ 
+ 
     }
 }
