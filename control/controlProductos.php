@@ -28,6 +28,12 @@ public function ctrlListarProductos(){
 
 }
 
+public function ctrlEliminarProductos(){
+
+
+
+}
+
 }
 
 if(isset($_POST["nombre"]) && isset($_POST["descripcion"]) && isset($_POST["stock"]) && isset($_POST["unidadMedida"]) && isset($_FILES["imagen"])){
@@ -52,5 +58,17 @@ if(isset($_POST["listarProductos"])){
     $objListar->ctrlListarProductos();
 
 }
+if(isset($_POST["eIdProducto"]) && isset($_POST["eimagen"])){
+
+    $objEliminar= new controlProductos();
+    $objEliminar->idProducto=$_POST["eIdProducto"];
+    $objEliminar->imagen=$_POST["eimagen"];
+    $objEliminar->ctrlEliminarProductos();
+
+
+
+
+}
+
 
 
