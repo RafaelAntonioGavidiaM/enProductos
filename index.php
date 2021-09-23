@@ -67,7 +67,7 @@
                         <input type="file" class="form-control" id="txtImagen">
                     </div>
 
-                    <button type="submit" id="btnRegistrar" class="btn btn-primary">Registrar</button>
+                    <button type="button"  id="btnRegistrar" class="btn btn-primary">Registrar</button>
 
                 </form>
 

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
 
     // function listarProducto(){
@@ -57,7 +57,7 @@ $(document).ready(function () {
     // }
 
 
-    $("#btnRegistrar").click(function () {
+    $("#btnRegistrar").click(function() {
 
         var nombre = $("#txtNombre").val();
         var descripcion = $("#txtDescripcion").val();
@@ -78,13 +78,13 @@ $(document).ready(function () {
             url: "control/controlProductos.php",
             type: "post",
             dataType: "json",
-            data: objListaProctos,
+            data: objData,
             cache: false,
             contentType: false,
             processData: false,
-            success: function (respuesta) {
+            success: function(respuesta) {
 
-                if(respuesta = "ok"){
+                if (respuesta = "ok") {
 
 
 

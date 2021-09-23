@@ -19,7 +19,7 @@ class modeloProductos
             if (move_uploaded_file($imagen['tmp_name'], $rutaArchivo)) {
 
                 try {
-                    $objConexion = conexion::conectar()->prepare("INSERT INTO producto(nombre,descripcion,stock,unidadMedida,imagen) values(:n,:d,:s,:u,i)");
+                    $objConexion = conexion::conectar()->prepare("INSERT INTO producto(nombre,descripcion,stock,unidadMedida,imagen) values(:n,:d,:s,:u,:i)");
                     $objConexion->bindParam(":n", $nombre, PDO::PARAM_STR);
                     $objConexion->bindParam(":d", $descripcion, PDO::PARAM_STR);
                     $objConexion->bindParam(":s", $stock, PDO::PARAM_INT);
