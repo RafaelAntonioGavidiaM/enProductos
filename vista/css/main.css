@@ -1,0 +1,27 @@
+.lineado_color{
+
+    border-bottom: 2px !important;
+    border-bottom-color: coral !important;
+
+}
+
+.panel{
+
+    border-color: coral;
+
+}
+
+.panel_cabecera{
+
+    color:white !important;
+    background-color:  coral!important;
+
+}
+
+
+.panel:hover{
+
+    box-shadow: 1px 1px 2rem gray;
+
+
+}
