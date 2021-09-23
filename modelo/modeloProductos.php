@@ -74,4 +74,20 @@ class modeloProductos
  
  
     }
+
+    public static function mdlModificarProducto($nombre,$descripcion,$imagen,$imagenAnterior,$unidad,$stock){
+ 
+
+        
+        if($imagen==null){}
+        
+
+
+
+
+
+
+
+        
+    }
 }

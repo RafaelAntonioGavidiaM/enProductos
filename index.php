@@ -51,7 +51,7 @@
                         <input type="text" class="form-control" id="txtNombre">
                     </div>
                     <div class="form-group">
-                        <label for="text">txtDescripcion:</label>
+                        <label for="text">Descripcion:</label>
                         <input type="text" class="form-control" id="txtDescripcion">
                     </div>
                     <div class="form-group">
@@ -92,6 +92,65 @@
             </div>
         </div>
     </div>
+
+    
+    <a class="btn btn-primary" data-toggle="modal" href='#modalModificar'>Trigger modal</a>
+    <div class="modal fade" id="modalModificar">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Modificar Producto</h4>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="text">Nombre:</label>
+                        <input type="text" class="form-control" id="mNombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Descripcion:</label>
+                        <input type="text" class="form-control" id="mDescripcion">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Stock:</label>
+                        <input type="text" class="form-control" id="mstock">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Unidad de medida:</label>
+                        <input type="text" class="form-control" id="mUnidadMedida">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Imagen:</label>
+
+                        
+                        <img src="#" class="img-responsive" alt="Image" id="imagenAnterior">
+                        
+
+                        <input type="file" class="form-control" id="mImagen">
+                    </div>
+
+                    
+
+                </form>
+
+
+
+
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"id="btnModificarProductos" >Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
 
 </body>
 

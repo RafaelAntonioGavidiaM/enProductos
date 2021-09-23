@@ -99,4 +99,103 @@ $(document).ready(function() {
 
 
     })
+
+    var idProducto = 0;
+    var imagenAnterior = "";
+
+    $("#tablaProductos").on("click", "#", function() {
+
+        idProducto = $(this).attr("idProducto");
+        var nombre = $(this).attr("nombre");
+        var descripcion = $(this).attr("descripcion");
+        var stock = $(this).attr("stock");
+        var medidaUnidad = $(this).attr("unidadaMedida");
+        var Imagen = $(this).attr("imagen");
+        $("#mNombre").val(nombre);
+        $("#mDescripcion").val(descripcion);
+        $("#mstock").val(stock);
+        $("#mUnidadMedida").val(medidaUnidad);
+        $("#mImagen").val(Imagen);
+        $("#imagenAnterior").attr("src", Imagen);
+        imagenAnterior = Imagen;
+
+
+
+
+
+
+
+
+
+
+
+    })
+
+
+    $("#btnModificarProductos").click(function() {
+
+        var nombre = $("#mNombre").val();
+        var descripcion = $("#mDescripcion").val();
+        var stock = $("#mstock").val();
+        var medidaUnidad = $("#mUnidadMedida").val();
+        var imagen = document.getElementById("mImagen").files[0];
+
+        var objData = new FormData();
+
+        objData.append("mNombre", nombre);
+        objData.append("mDescripcion", descripcion);
+        objData.append("mStock", stock);
+        objData.append("mUnidadMedida", medidaUnidad);
+
+
+
+        if (imagen == null || imagen == "" || imagen.empty()) {
+
+            objData.append("mImagen", imagenAnterior);
+
+
+
+
+
+        } else {
+            objData.append("mImagen", imagen);
+            objData.append("imagenAnterior", imagenAnterior);
+
+
+        }
+
+
+        $.ajax({
+            url: "control/control/controlProductos.php",
+            type: "post",
+            dataType: "json",
+            data: objData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(respuesta) {
+
+
+            }
+
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+    })
+
+
+
+
 })

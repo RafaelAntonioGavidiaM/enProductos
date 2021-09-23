@@ -10,6 +10,7 @@ public $descripcion;
 public $stock;
 public $unidadMedida;
 public $imagen;
+public $imagenAnterior;
 
 
 public function ctrlInsertar(){
@@ -30,6 +31,11 @@ public function ctrlListarProductos(){
 
 public function ctrlEliminarProductos(){
 
+
+
+}
+
+public function ctrlModificarProductos(){
 
 
 }
@@ -64,6 +70,34 @@ if(isset($_POST["eIdProducto"]) && isset($_POST["eimagen"])){
     $objEliminar->idProducto=$_POST["eIdProducto"];
     $objEliminar->imagen=$_POST["eimagen"];
     $objEliminar->ctrlEliminarProductos();
+
+
+
+
+}
+if(isset($_POST["mNombre"]) && isset($_POST["mDescripcion"]) && isset($_POST["mStock"]) && isset($_POST["mUnidadMedida"]) ){
+
+    $objModificar= new  controlProductos();
+    $objModificar->nombre=$_POST["mNombre"];
+    $objModificar->descripcion=$_POST["mDescripcion"];
+    $objModificar->stock=$_POST["mStock"];
+    $objModificar->unidadMedida=$_POST["mUnidadMedida"];
+
+    if(isset($_FILES["mImagen"]) && isset($_POST["imagenAnterior"])){
+        $objModificar->imagen=isset($_FILES["mImagen"]);
+        $objModificar->imagenAnterior=$_POST["imagenAnterior"];
+
+
+    }
+    else if(isset($_POST["mImagen"]) ){
+        $objModificar->imagenAnterior=$_POST["mImagen"];
+        $objModificar->imagen=null;
+
+
+
+    }
+
+    $objModificar->ctrlModificarProductos();
 
 
 
