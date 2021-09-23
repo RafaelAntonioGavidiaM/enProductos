@@ -46,7 +46,7 @@
 
     <div class="container-fluid">
         <div class="col-sm-12">
-            <div class="col-ms-6 ">
+            <div class="col-sm-6">
                 <form>
                     <div class="form-group">
                         <label for="text">Nombre:</label>
@@ -107,6 +107,7 @@
 
             </div>
         </div>
+
     </div>
 
 </body>

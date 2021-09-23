@@ -3,7 +3,6 @@ $(document).ready(function () {
     // -------------------------------------METODOS O FUNCIONES .-. --------------------------------------
     listarProducto();
 
-<<<<<<< HEAD
     //---------------------------------------Variables-----------------------------------------------------
 
 
@@ -12,8 +11,6 @@ $(document).ready(function () {
     // --------------------------------------------------------------------------------------------
 
 
-=======
->>>>>>> 7285c71af09ca8a55f8ffdd1a3a184b6fd7e6b9f
     function listarProducto() {
 
         var listarProductos = "ok";
@@ -39,11 +36,7 @@ $(document).ready(function () {
                 function listaProductos(item, index) {
 
                     var foto = '<img src="' + item.imagen + '" high="40" width="40">';
-<<<<<<< HEAD
-                    var objBotones = '<button id="btnEditarProducto" type="button" class="btn btn-warning" idProducto="' + item.idProducto + '" nombre= "' + item.nombre + '" descripcion= "' + item.descripcion + '" stock="' + item.stock + '" unidadMedida="' + item.unidadMedida + '" imagen = "' + item.imagen + '"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>'
-=======
                     var objBotones = '<button id="btnEditarProducto" type="button" class="btn btn-warning" idProducto="' + item.idProducto + '" nombre= "' + item.nombre + '" descripcion= "' + item.descripcion + '" stock="' + item.stock + '" unidadMedida="' + item.unidadMedida + '" imagen = "' + item.imagen + '"><span class="glyphicon glyphicon-pincel" aria-hidden="true"></span></button>'
->>>>>>> 7285c71af09ca8a55f8ffdd1a3a184b6fd7e6b9f
                     objBotones += '<button id="btnEliminarProducto" type="button" class="btn btn-danger" idProducto = "' + item.idProducto + '"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
 
                     dataSet.push([item.nombre, item.descripcion, item.stock, item.unidadMedida, foto, objBotones]);
@@ -106,8 +99,6 @@ $(document).ready(function () {
 
             }
 
-<<<<<<< HEAD
-=======
 
 
 
@@ -122,7 +113,6 @@ $(document).ready(function () {
 
 
 
->>>>>>> 7285c71af09ca8a55f8ffdd1a3a184b6fd7e6b9f
         })
 
     }
@@ -215,31 +205,26 @@ $(document).ready(function () {
                             )
 
                             listarProducto();
-                            
+
                         }
 
 
                     })
 
                 }
+            })
 
-<<<<<<< HEAD
-    })
+    });
 
     // --------------------------------------------------------------------------------------------
     // ------------------------------Destruir datatable de producto--------------------------------
     // --------------------------------------------------------------------------------------------
 
-    function iniciarTablaProductos(){
+    function iniciarTablaProductos() {
 
         var tablaProducto = $("#tablaProductos").DataTable();
         tablaProducto.destroy();
 
 
     }
-
-=======
-            });
-    });
->>>>>>> 7285c71af09ca8a55f8ffdd1a3a184b6fd7e6b9f
 })
