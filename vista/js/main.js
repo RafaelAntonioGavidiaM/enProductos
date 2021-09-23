@@ -36,8 +36,8 @@ $(document).ready(function () {
                 function listaProductos(item, index) {
 
                     var foto = '<img src="' + item.imagen + '" high="40" width="40">';
-                    var objBotones = '<button id="btnEditarProducto" type="button" class="btn btn-warning" idProducto="' + item.idProducto + '" nombre= "' + item.nombre + '" descripcion= "' + item.descripcion + '" stock="' + item.stock + '" unidadMedida="' + item.unidadMedida + '" imagen = "' + item.imagen + '"><span class="glyphicon glyphicon-pincel" aria-hidden="true"></span></button>'
-                    objBotones += '<button id="btnEliminarProducto" type="button" class="btn btn-danger" idProducto = "' + item.idProducto + '"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
+                    var objBotones = '<button id="btnEditarProducto" type="button" class="btn btn-warning" idProducto="' + item.idProducto + '" nombre= "' + item.nombre + '" descripcion= "' + item.descripcion + '" stock="' + item.stock + '" unidadMedida="' + item.unidadMedida + '" imagen = "' + item.imagen + '"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>'
+                    objBotones += '<button id="btnEliminarProducto" type="button" class="btn btn-danger" idProducto = "' + item.idProducto + '" imagen = "' + item.imagen + '"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
 
                     dataSet.push([item.nombre, item.descripcion, item.stock, item.unidadMedida, foto, objBotones]);
 
@@ -181,8 +181,8 @@ $(document).ready(function () {
             .then((willDelete) => {
                 if (willDelete) {
 
-                    var idProducto = $(this).attr("eIdProducto");
-                    var imagen = $(this).attr("eimagen");
+                    var idProducto = $(this).attr("idProducto");
+                    var imagen = $(this).attr("imagen");
 
                     var objData = new FormData();
                     objData.append("eIdProducto", idProducto);
@@ -205,6 +205,7 @@ $(document).ready(function () {
                             )
                             iniciarTablaProductos();
                             listarProducto();
+                            iniciarTablaProductos()
 
                         }
 
