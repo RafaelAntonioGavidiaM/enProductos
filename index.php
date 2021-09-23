@@ -57,11 +57,7 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Descripcion:</label>
-<<<<<<< HEAD
-                        <input type="text" class="form-control" id="txtDescripcion">
-=======
                         <input type="text" class="form-control lineado_color" id="txtDescripcion">
->>>>>>> 51e37f15edf8b38de0b10f52a3dc2aafeb5373a2
                     </div>
                     <div class="form-group">
                         <label for="text">Stock:</label>

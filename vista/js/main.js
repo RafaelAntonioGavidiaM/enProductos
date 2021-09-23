@@ -35,19 +35,12 @@ $(document).ready(function() {
 
                 function listaProductos(item, index) {
 
-                    var foto = '<img src="' + item.imagen + '" high="40" width="40">'; <<
-                    <<
-                    <<
-                    < HEAD
-                    var objBotones = '<button id="btnEditarProducto" type="button" class="btn btn-warning" idProducto="' + item.idProducto + '" nombre= "' + item.nombre + '" descripcion= "' + item.descripcion + '" stock="' + item.stock + '" unidadMedida="' + item.unidadMedida + '" imagen = "' + item.imagen + '" data-toggle="modal" data-target="#modalModificar"><span class="glyphicon glyphicon-pincel" aria-hidden="true"></span></button>'
-                    objBotones += '<button id="btnEliminarProducto" type="button" class="btn btn-danger" idProducto = "' + item.idProducto + '"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>'; ===
-                    ===
-                    =
-                    var objBotones = '<button id="btnEditarProducto" type="button" class="btn btn-warning" idProducto="' + item.idProducto + '" nombre= "' + item.nombre + '" descripcion= "' + item.descripcion + '" stock="' + item.stock + '" unidadMedida="' + item.unidadMedida + '" imagen = "' + item.imagen + '"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>'
-                    objBotones += '<button id="btnEliminarProducto" type="button" class="btn btn-danger" idProducto = "' + item.idProducto + '" imagen = "' + item.imagen + '"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>'; >>>
-                    >>>
-                    >
-                    51e37 f15edf8b38de0b10f52a3dc2aafeb5373a2
+                    var foto = '<img src="' + item.imagen + '" high="40" width="40">';
+
+
+                    var objBotones = '<button id="btnEditarProducto" type="button" class="btn btn-warning" idProducto="' + item.idProducto + '" nombre= "' + item.nombre + '" descripcion= "' + item.descripcion + '" stock="' + item.stock + '" unidadMedida="' + item.unidadMedida + '" imagen = "' + item.imagen + '" data-toggle="modal" data-target="#modalModificar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>'
+                    objBotones += '<button id="btnEliminarProducto" type="button" class="btn btn-danger" idProducto = "' + item.idProducto + '" imagen = "' + item.imagen + '"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
+
 
                     dataSet.push([item.nombre, item.descripcion, item.stock, item.unidadMedida, foto, objBotones]);
 
@@ -178,6 +171,7 @@ $(document).ready(function() {
     })
 
     $("#tablaProductos").on("click", "#btnEliminarProducto", function() {
+        alert("hola");
 
         Swal.fire({
                 title: '¿Seguro quieres eliminar este producto?',
