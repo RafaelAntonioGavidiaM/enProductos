@@ -3,6 +3,7 @@ $(document).ready(function () {
     // -------------------------------------METODOS O FUNCIONES .-. --------------------------------------
     listarProducto();
 
+<<<<<<< HEAD
     //---------------------------------------Variables-----------------------------------------------------
 
 
@@ -11,6 +12,8 @@ $(document).ready(function () {
     // --------------------------------------------------------------------------------------------
 
 
+=======
+>>>>>>> 7285c71af09ca8a55f8ffdd1a3a184b6fd7e6b9f
     function listarProducto() {
 
         var listarProductos = "ok";
@@ -36,7 +39,11 @@ $(document).ready(function () {
                 function listaProductos(item, index) {
 
                     var foto = '<img src="' + item.imagen + '" high="40" width="40">';
+<<<<<<< HEAD
                     var objBotones = '<button id="btnEditarProducto" type="button" class="btn btn-warning" idProducto="' + item.idProducto + '" nombre= "' + item.nombre + '" descripcion= "' + item.descripcion + '" stock="' + item.stock + '" unidadMedida="' + item.unidadMedida + '" imagen = "' + item.imagen + '"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>'
+=======
+                    var objBotones = '<button id="btnEditarProducto" type="button" class="btn btn-warning" idProducto="' + item.idProducto + '" nombre= "' + item.nombre + '" descripcion= "' + item.descripcion + '" stock="' + item.stock + '" unidadMedida="' + item.unidadMedida + '" imagen = "' + item.imagen + '"><span class="glyphicon glyphicon-pincel" aria-hidden="true"></span></button>'
+>>>>>>> 7285c71af09ca8a55f8ffdd1a3a184b6fd7e6b9f
                     objBotones += '<button id="btnEliminarProducto" type="button" class="btn btn-danger" idProducto = "' + item.idProducto + '"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
 
                     dataSet.push([item.nombre, item.descripcion, item.stock, item.unidadMedida, foto, objBotones]);
@@ -99,6 +106,23 @@ $(document).ready(function () {
 
             }
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 7285c71af09ca8a55f8ffdd1a3a184b6fd7e6b9f
         })
 
     }
@@ -151,11 +175,55 @@ $(document).ready(function () {
             }
 
         })
+    })
+
+    $("#tablaProductos").on("click", "#btnEliminarProducto", function () {
+
+        Swal.fire({
+            title: '¿Seguro quieres eliminar este producto?',
+            text: "Una vez eliminado no se podra recuperar",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, Eliminar!'
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+
+                    var idProducto = $(this).attr("eIdProducto");
+                    var imagen = $(this).attr("eimagen");
+
+                    var objData = new FormData();
+                    objData.append("eIdProducto", idProducto);
+                    objData.append("eimagen", imagen);
+
+                    $.ajax({
+                        url: "control/controlProductos.php",
+                        type: "post",
+                        dataType: "json",
+                        data: objData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function (respuesta) {
+
+                            Swal.fire(
+                                'Eliminado!',
+                                'El Producto fue eliminado',
+                                'success'
+                            )
+
+                            listarProducto();
+                            
+                        }
 
 
+                    })
 
+                }
 
-
+<<<<<<< HEAD
     })
 
     // --------------------------------------------------------------------------------------------
@@ -170,4 +238,8 @@ $(document).ready(function () {
 
     }
 
+=======
+            });
+    });
+>>>>>>> 7285c71af09ca8a55f8ffdd1a3a184b6fd7e6b9f
 })

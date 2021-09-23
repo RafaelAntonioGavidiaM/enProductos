@@ -30,7 +30,8 @@ public function ctrlListarProductos(){
 
 public function ctrlEliminarProductos(){
 
-
+    $objRespuesta = modeloProductos::mdlEliminar($this->idProducto, $this->imagen);
+    echo json_encode($objRespuesta);
 
 }
 

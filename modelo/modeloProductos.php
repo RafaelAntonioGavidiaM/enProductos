@@ -68,7 +68,32 @@ class modeloProductos
 
 
     }
+<<<<<<< HEAD
 
     
     
+=======
+    public static function mdlEliminar($idProducto,$imagen){
+
+        $mensaje = "";
+
+        if (!unlink("../" . $imagen)) {
+            $mensaje = "No fue posible eliminar la imagen";
+        } else {
+            try {
+                $objEliminarProducto = Conexion::conectar()->prepare("DELETE FROM producto WHERE idProducto='$idProducto'");
+                if ($objEliminarProducto->execute()) {
+                    $mensaje = "ok";
+                } else {
+                    $mensaje = "error";
+                }
+                $objEliminarProducto = null;
+            } catch (Exception $e) {
+                $mensaje = $e;
+            }
+        }
+
+        return $mensaje;
+    }
+>>>>>>> 7285c71af09ca8a55f8ffdd1a3a184b6fd7e6b9f
 }
