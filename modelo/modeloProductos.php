@@ -68,11 +68,7 @@ class modeloProductos
 
 
     }
-<<<<<<< HEAD
-
     
-    
-=======
     public static function mdlEliminar($idProducto,$imagen){
 
         $mensaje = "";
@@ -95,5 +91,4 @@ class modeloProductos
 
         return $mensaje;
     }
->>>>>>> 7285c71af09ca8a55f8ffdd1a3a184b6fd7e6b9f
 }
