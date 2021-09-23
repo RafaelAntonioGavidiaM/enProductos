@@ -39,60 +39,80 @@
 
 <body>
     <header>
-        <h1>Reto</h1>
+        <h1>
+            <center>Reto</center>
+        </h1>
     </header>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="col-sm-12">
-            <div class="col-ms-6">
+            <div class="col-ms-6 ">
                 <form>
                     <div class="form-group">
                         <label for="text">Nombre:</label>
-                        <input type="text" class="form-control" id="txtNombre">
+                        <input type="text" class="form-control lineado_color" id="txtNombre">
                     </div>
                     <div class="form-group">
                         <label for="text">txtDescripcion:</label>
-                        <input type="text" class="form-control" id="txtDescripcion">
+                        <input type="text" class="form-control lineado_color" id="txtDescripcion">
                     </div>
                     <div class="form-group">
                         <label for="text">Stock:</label>
-                        <input type="text" class="form-control" id="txtStock">
+                        <input type="text" class="form-control lineado_color" id="txtStock">
                     </div>
                     <div class="form-group">
                         <label for="text">Unidad de medida:</label>
-                        <input type="text" class="form-control" id="txtUnidadMedida">
+                        <input type="text" class="form-control lineado_color" id="txtUnidadMedida">
                     </div>
                     <div class="form-group">
                         <label for="text">Imagen:</label>
-                        <input type="file" class="form-control" id="txtImagen">
+                        <input type="file" class="form-control lineado_color" id="txtImagen">
                     </div>
-
-                    <button type="button"  id="btnRegistrar" class="btn btn-primary">Registrar</button>
+                    <br>
+                    <center><button type="button" id="btnRegistrar" class="btn btn-primary btn-block">Registrar</button></center>
+                    <br>
 
                 </form>
 
             </div>
-            <div class="col-sm-6">
+            <div id="productosTable" class="col-sm-6 text-center">
 
-                <table id="tablaProductos" class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Descripcion</th>
-                            <th>Stock</th>
-                            <th>Unidad de medida</th>
-                            <th>Imagen</th>
-                        </tr>
-                    </thead>
-                    <tbody id="bodyTablaProductos">
+                <div class="panel panel-default">
+                    <div class="panel-heading panel_cabecera">
 
-                    </tbody>
-                </table>
+                        Listador de productos
+
+                    </div>
+                    <div class="panel-body">
+
+                        <table id="tablaProductos" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Descripcion</th>
+                                    <th>Stock</th>
+                                    <th>Unidad de medida</th>
+                                    <th>Imagen</th>
+                                    <th>Acciones </th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyTablaProductos">
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
 
             </div>
         </div>
     </div>
 
 </body>
+
+
+
+
 
 </html>

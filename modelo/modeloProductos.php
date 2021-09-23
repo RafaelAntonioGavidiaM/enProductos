@@ -68,10 +68,7 @@ class modeloProductos
 
 
     }
-    public static function mdlEliminar($id,$imagen){
 
-
- 
- 
-    }
+    
+    
 }
