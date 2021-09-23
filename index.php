@@ -45,7 +45,7 @@
     <div class="container">
         <div class="col-sm-12">
             <div class="col-ms-6">
-                <form action="/action_page.php">
+                <form>
                     <div class="form-group">
                         <label for="text">Nombre:</label>
                         <input type="text" class="form-control" id="txtNombre">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Imagen:</label>
-                        <input type="text" class="form-control" id="imagen">
+                        <input type="file" class="form-control" id="txtImagen">
                     </div>
 
                     <button type="submit" id="btnRegistrar" class="btn btn-primary">Registrar</button>
