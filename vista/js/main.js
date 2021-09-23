@@ -103,6 +103,16 @@ $(document).ready(function () {
 
 
 
+
+
+
+
+
+
+
+
+
+
         })
 
     }
@@ -195,7 +205,7 @@ $(document).ready(function () {
                             )
                             iniciarTablaProductos();
                             listarProducto();
-                            
+
                         }
 
 
@@ -203,8 +213,8 @@ $(document).ready(function () {
 
                 }
             })
-        
-    })
+
+    });
 
     // --------------------------------------------------------------------------------------------
     // ------------------------------Destruir datatable de producto--------------------------------
