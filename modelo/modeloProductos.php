@@ -57,8 +57,11 @@ class modeloProductos
 
 
 
-    public static function mdlEliminar($idProducto, $imagen)
-    {
+    
+
+    
+
+    public static function mdlEliminar($idProducto,$imagen){
 
         $mensaje = "";
 

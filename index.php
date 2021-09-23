@@ -18,7 +18,10 @@
     <!-- DataTables -->
     <!-- Por Defecto -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
     <link rel='stylesheet' type='text/css' media='screen' href='https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css'>
+    <!--animated -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- Botones Exportacion-->
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.colVis.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
@@ -46,7 +49,7 @@
 
     <div class="container-fluid">
         <div class="col-sm-12">
-            <div class="col-sm-6">
+            <div class="col-sm-6 animate__animated animate__fadeInLeft">
                 <form>
                     <div class="form-group">
                         <label for="text">Nombre:</label>
@@ -54,7 +57,11 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Descripcion:</label>
+<<<<<<< HEAD
                         <input type="text" class="form-control" id="txtDescripcion">
+=======
+                        <input type="text" class="form-control lineado_color" id="txtDescripcion">
+>>>>>>> 51e37f15edf8b38de0b10f52a3dc2aafeb5373a2
                     </div>
                     <div class="form-group">
                         <label for="text">Stock:</label>
@@ -69,13 +76,13 @@
                         <input type="file" class="form-control lineado_color" id="txtImagen">
                     </div>
                     <br>
-                    <center><button type="button" id="btnRegistrar" class="btn btn-primary btn-block">Registrar</button></center>
+                    <center><button type="button" id="btnRegistrar" class="btn boton_de_Registro btn-block">Registrar</button></center>
                     <br>
 
                 </form>
 
             </div>
-            <div id="productosTable" class="col-sm-6 text-center">
+            <div id="productosTable" class="col-sm-6 text-center animate__animated animate__bounceInRight">
 
                 <div class="panel panel-default">
                     <div class="panel-heading panel_cabecera">
