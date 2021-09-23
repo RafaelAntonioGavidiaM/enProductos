@@ -26,52 +26,39 @@ class modeloProductos
                     $objConexion->bindParam(":u", $unidadMedida, PDO::PARAM_STR);
                     $objConexion->bindParam(":i", $url, PDO::PARAM_STR);
 
-                    if($objConexion->execute()){
+                    if ($objConexion->execute()) {
 
-                        $mensaje="ok";
-
+                        $mensaje = "ok";
+                    } else {
+                        $mensaje = "error";
                     }
-                    else{
-                        $mensaje="error";
-
-                    }
-                    
                 } catch (Exception $th) {
-                $mensaje=$th;
+                    $mensaje = $th;
                 }
-
-               
-
-            }else{
-                $mensaje="no se pudo mover la imagen";
-
+            } else {
+                $mensaje = "no se pudo mover la imagen";
             }
-        }
-        else{
-            $mensaje="El formato de la imagen es incompatible";
-
-
+        } else {
+            $mensaje = "El formato de la imagen es incompatible";
         }
 
         return $mensaje;
-
     }
 
-    public static function mdlListarProductos(){
+    public static function mdlListarProductos()
+    {
 
-        $objConsulta=conexion::conectar()->prepare("SELECT * from producto");
+        $objConsulta = conexion::conectar()->prepare("SELECT * from producto");
         $objConsulta->execute();
-        $lista=$objConsulta->fetchAll();
-        $objConsulta=null;
+        $lista = $objConsulta->fetchAll();
+        $objConsulta = null;
         return $lista;
-
-
-
     }
 
-    
-    
-    public static function mdlEliminar($idProducto,$imagen){
+
+
+    public static function mdlEliminar($idProducto, $imagen)
+    {
 
         $mensaje = "";
 
@@ -94,19 +81,59 @@ class modeloProductos
         return $mensaje;
     }
 
-    public static function mdlModificarProducto($nombre,$descripcion,$imagen,$imagenAnterior,$unidad,$stock){
- 
+    public static function mdlModificarProducto($id, $nombre, $descripcion, $imagen, $imagenAnterior, $unidad, $stock)
+    {
+
+        $mensaje = "";
 
         
-        if($imagen==null){}
-        
 
 
 
 
 
 
+        if ($imagen == null) {
 
-        
+            
+           $mensaje=modeloProductos::modificar($id, $nombre, $descripcion, $unidad, $stock, $imagenAnterior);
+        } else {
+
+            $nombreArchivo = $imagen['name'];
+            $extension = substr($nombreArchivo, -4);
+            $rutaArchivo = "vista/imagenesProductos/" . $nombre . $extension;
+            $rutaMover = "../vista/imagenesProductos/" . $nombre . $extension;
+
+            if (unlink("../" . $imagenAnterior)) {
+                if (move_uploaded_file($imagen['tmp_name'], $rutaMover)) {
+
+                    $mensaje=modeloProductos::modificar($id, $nombre, $descripcion, $unidad, $stock, $rutaArchivo);
+                }
+            }
+        }
+
+        return $mensaje;
+    }
+
+
+    public static  function modificar($idP, $n, $d, $u, $s, $ri)
+    {
+
+        $objModificar = conexion::conectar()->prepare("UPDATE producto set nombre=:n,descripcion=:d,stock=:s,unidadMedida=:u, imagen=:i where idProducto=:id");
+        $objModificar->bindParam(":n", $n, PDO::PARAM_STR);
+        $objModificar->bindParam(":d", $d, PDO::PARAM_STR);
+        $objModificar->bindParam(":s", $s, PDO::PARAM_INT);
+        $objModificar->bindParam(":u", $u, PDO::PARAM_STR);
+        $objModificar->bindParam(":i", $ri, PDO::PARAM_STR);
+        $objModificar->bindParam(":id", $idP, PDO::PARAM_INT);
+
+
+        if ($objModificar->execute()) {
+
+            $devolver = "ok";
+        } else {
+            $devolver = "error";
+        }
+        return $devolver;
     }
 }

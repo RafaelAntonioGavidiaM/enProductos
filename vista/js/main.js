@@ -36,7 +36,7 @@ $(document).ready(function() {
                 function listaProductos(item, index) {
 
                     var foto = '<img src="' + item.imagen + '" high="40" width="40">';
-                    var objBotones = '<button id="btnEditarProducto" type="button" class="btn btn-warning" idProducto="' + item.idProducto + '" nombre= "' + item.nombre + '" descripcion= "' + item.descripcion + '" stock="' + item.stock + '" unidadMedida="' + item.unidadMedida + '" imagen = "' + item.imagen + '"><span class="glyphicon glyphicon-pincel" aria-hidden="true"></span></button>'
+                    var objBotones = '<button id="btnEditarProducto" type="button" class="btn btn-warning" idProducto="' + item.idProducto + '" nombre= "' + item.nombre + '" descripcion= "' + item.descripcion + '" stock="' + item.stock + '" unidadMedida="' + item.unidadMedida + '" imagen = "' + item.imagen + '" data-toggle="modal" data-target="#modalModificar"><span class="glyphicon glyphicon-pincel" aria-hidden="true"></span></button>'
                     objBotones += '<button id="btnEliminarProducto" type="button" class="btn btn-danger" idProducto = "' + item.idProducto + '"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
 
                     dataSet.push([item.nombre, item.descripcion, item.stock, item.unidadMedida, foto, objBotones]);
@@ -227,4 +227,105 @@ $(document).ready(function() {
 
 
     }
+
+    var idProducto = 0;
+    var imagenAnterior = "";
+
+    $("#tablaProductos").on("click", "#btnEditarProducto", function() {
+
+        idProducto = $(this).attr("idProducto");
+        var nombre = $(this).attr("nombre");
+        var descripcion = $(this).attr("descripcion");
+        var stock = $(this).attr("stock");
+        var medidaUnidad = $(this).attr("unidadMedida");
+        var Imagen = $(this).attr("imagen");
+        $("#mNombre").val(nombre);
+        $("#mDescripcion").val(descripcion);
+        $("#mstock").val(stock);
+        $("#mUnidadMedida").val(medidaUnidad);
+        // $("#mImagen").val(Imagen);
+        $("#imagenAnterior").attr("src", Imagen);
+        imagenAnterior = Imagen;
+
+
+
+
+
+
+
+
+
+
+
+    })
+
+
+    $("#btnModificarProductos").click(function() {
+
+        var nombre = $("#mNombre").val();
+        var descripcion = $("#mDescripcion").val();
+        var stock = $("#mstock").val();
+        var medidaUnidad = $("#mUnidadMedida").val();
+        var imagen = document.getElementById("mImagen").files[0];
+
+        var objData = new FormData();
+
+        objData.append("mNombre", nombre);
+        objData.append("mDescripcion", descripcion);
+        objData.append("mStock", stock);
+        objData.append("mUnidadMedida", medidaUnidad);
+        objData.append("id", idProducto);
+
+
+
+        if (imagen == null || imagen == "") {
+
+            objData.append("mImagen", imagenAnterior);
+
+
+
+
+
+        } else {
+            objData.append("mImagen", imagen);
+            objData.append("imagenAnterior", imagenAnterior);
+
+
+        }
+
+
+        $.ajax({
+            url: "control/controlProductos.php",
+            type: "post",
+            dataType: "json",
+            data: objData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(respuesta) {
+                iniciarTablaProductos();
+                listarProducto();
+
+
+
+            }
+
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+    })
+
+
 })

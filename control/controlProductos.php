@@ -37,7 +37,8 @@ public function ctrlEliminarProductos(){
 }
 
 public function ctrlModificarProductos(){
-
+    $objRespuesta=modeloProductos::mdlModificarProducto($this->idProducto,$this->nombre,$this->descripcion,$this->imagen,$this->imagenAnterior,$this->unidadMedida,$this->stock);
+    echo json_encode($objRespuesta);
 
 }
 
@@ -76,16 +77,17 @@ if(isset($_POST["eIdProducto"]) && isset($_POST["eimagen"])){
 
 
 }
-if(isset($_POST["mNombre"]) && isset($_POST["mDescripcion"]) && isset($_POST["mStock"]) && isset($_POST["mUnidadMedida"]) ){
+if(isset($_POST["id"]) && isset($_POST["mNombre"]) && isset($_POST["mDescripcion"]) && isset($_POST["mStock"]) && isset($_POST["mUnidadMedida"]) ){
 
     $objModificar= new  controlProductos();
     $objModificar->nombre=$_POST["mNombre"];
     $objModificar->descripcion=$_POST["mDescripcion"];
     $objModificar->stock=$_POST["mStock"];
     $objModificar->unidadMedida=$_POST["mUnidadMedida"];
+    $objModificar->idProducto=$_POST["id"];
 
     if(isset($_FILES["mImagen"]) && isset($_POST["imagenAnterior"])){
-        $objModificar->imagen=isset($_FILES["mImagen"]);
+        $objModificar->imagen=$_FILES["mImagen"];
         $objModificar->imagenAnterior=$_POST["imagenAnterior"];
 
 

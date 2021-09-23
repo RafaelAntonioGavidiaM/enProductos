@@ -111,7 +111,7 @@
     </div>
 
     
-    <a class="btn btn-primary" data-toggle="modal" href='#modalModificar'>Trigger modal</a>
+   
     <div class="modal fade" id="modalModificar">
         <div class="modal-dialog">
             <div class="modal-content">
