@@ -53,7 +53,7 @@
                         <input type="text" class="form-control lineado_color" id="txtNombre">
                     </div>
                     <div class="form-group">
-                        <label for="text">txtDescripcion:</label>
+                        <label for="text">Descripcion:</label>
                         <input type="text" class="form-control lineado_color" id="txtDescripcion">
                     </div>
                     <div class="form-group">
